@@ -1,6 +1,6 @@
 <template>
   <div class="game-board">
-    <GameBox v-for="box in gameBoxes" :key="box.id" :boxContent="box.text"></GameBox>
+    <GameBox v-for="box in gameBoxes" :key="box.id" :box-content="box.text"></GameBox>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
 .game-board {
   border: 1px solid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 </style>
