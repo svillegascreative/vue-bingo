@@ -27,5 +27,20 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  width: 80vw;
+  margin: 0 auto;
+
+  &::before {
+    content: "";
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+
+  & > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
 }
 </style>
