@@ -1,11 +1,15 @@
 <template>
-  <div class="game-box">{{boxContent}}</div>
+  <div class="game-box">
+    <input type="checkbox" :id="boxId" />
+    <label :for="boxId">{{boxContent}}</label>
+  </div>
 </template>
 
 <script>
 export default {
   name: "GameBox",
   props: {
+    boxId: Number,
     boxContent: String
   }
 };
@@ -13,11 +17,29 @@ export default {
 
 <style lang="scss" scoped>
 .game-box {
+  position: relative;
   height: 100%;
   width: 100%;
   border: 1px solid;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+
+input[type="checkbox"] {
+  display: none;
+
+  & + label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // z-index: -1;
+  }
+
+  &:checked + label {
+    background: yellow;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="game-board">
-    <GameBox v-for="box in gameBoxes" :key="box.id" :box-content="box.text"></GameBox>
+    <GameBox v-for="(box, index) in gameBoxes" :key="index" :box-id="index" :box-content="box"></GameBox>
   </div>
 </template>
 
