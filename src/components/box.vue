@@ -1,7 +1,7 @@
 <template>
   <div class="game-box">
-    <input type="checkbox" :id="boxId" />
-    <label :for="boxId">{{boxContent}}</label>
+    <input type="checkbox" :id="boxIdentifier" :value="boxId" />
+    <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   props: {
     boxId: Number,
     boxContent: String
+  },
+  computed: {
+    boxIdentifier: function() {
+      return "box-" + this.boxId;
+    }
   }
 };
 </script>
