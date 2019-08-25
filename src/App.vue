@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <GameBoard></GameBoard>
+    <GameBoard :boxes="boxes"></GameBoard>
   </div>
 </template>
 
 <script>
 import GameBoard from "./components/board.vue";
+import testBoxes from "@/data/boxes.js";
 
 export default {
   name: "app",
   components: {
     GameBoard
+  },
+  data() {
+    return {
+      boxes: testBoxes
+    };
   }
 };
 </script>
