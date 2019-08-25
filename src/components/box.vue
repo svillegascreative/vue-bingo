@@ -1,6 +1,6 @@
 <template>
   <div class="game-box">
-    <input type="checkbox" :id="boxIdentifier" :value="boxId" />
+    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="updateChecked" />
     <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
 </template>
@@ -15,6 +15,14 @@ export default {
   computed: {
     boxIdentifier: function() {
       return "box-" + this.boxId;
+    },
+    setUnchecked: function() {
+      this.isChecked = false;
+    }
+  },
+  methods: {
+    updateChecked: function(e) {
+      this.isChecked = !this.isChecked;
     }
   }
 };
