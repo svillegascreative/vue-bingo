@@ -1,6 +1,12 @@
 <template>
   <div class="game-board">
-    <GameBox v-for="(box, index) in boxes" :key="index" :box-id="index" :box-content="box"></GameBox>
+    <GameBox
+      v-for="(box, index) in boxes"
+      :key="index"
+      :box-id="index"
+      :box-content="box"
+      v-on:update-game="updateGame"
+    ></GameBox>
   </div>
 </template>
 
@@ -14,6 +20,22 @@ export default {
   },
   components: {
     GameBox
+  },
+  data() {
+    return {
+      currentGame: []
+    };
+  },
+  methods: {
+    updateGame: function(Id) {
+      if (this.currentGame.includes(Id)) {
+        this.currentGame.splice(this.currentGame.indexOf(Id), 1);
+      } else {
+        this.currentGame.push(Id);
+      }
+
+      console.log(this.currentGame);
+    }
   }
 };
 </script>
