@@ -5,7 +5,7 @@
       :key="index"
       :box-id="index"
       :box-content="box"
-      v-on:update-game="updateGame"
+      @check-box="updateCheckedBoxes"
     ></GameBox>
   </div>
 </template>
@@ -23,18 +23,22 @@ export default {
   },
   data() {
     return {
-      currentGame: []
+      checkedBoxes: []
     };
   },
   methods: {
-    updateGame: function(Id) {
-      if (this.currentGame.includes(Id)) {
-        this.currentGame.splice(this.currentGame.indexOf(Id), 1);
+    updateCheckedBoxes: function(id) {
+      if (this.checkedBoxes.includes(id)) {
+        this.checkedBoxes.splice(this.checkedBoxes.indexOf(id), 1);
       } else {
-        this.currentGame.push(Id);
+        this.checkedBoxes.push(id);
       }
-
-      console.log(this.currentGame);
+      console.log("checked boxes: " + this.checkedBoxes);
+    }
+  },
+  watch: {
+    checkedBoxes: function(val) {
+      this.$emit("board-change", val);
     }
   }
 };

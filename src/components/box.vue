@@ -1,6 +1,6 @@
 <template>
   <div class="game-box">
-    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="toggleCheck(boxId)" />
+    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="$emit('check-box', boxId)" />
     <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
 </template>
@@ -15,16 +15,6 @@ export default {
   computed: {
     boxIdentifier: function() {
       return "box-" + this.boxId;
-      // },
-      // setUnchecked: function() {
-      // this.isChecked = false;
-    }
-  },
-  methods: {
-    toggleCheck: function(Id) {
-      // this.isChecked = !this.isChecked;
-      this.$emit("update-game", Id);
-      // console.log(Id);
     }
   }
 };
