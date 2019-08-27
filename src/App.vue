@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <GameBoard :boxes="boxes"></GameBoard>
-    <GameStatus :boxesPlayed="boxesPlayed"></GameStatus>
+    <GameStatus></GameStatus>
   </div>
 </template>
 
@@ -20,14 +20,8 @@ export default {
   },
   data() {
     return {
-      boxes: testBoxes,
-      boxesPlayed: []
+      boxes: testBoxes
     };
-  },
-  methods: {
-    updateGameStatus: function(val) {
-      this.boxesPlayed = val;
-    }
   }
 };
 </script>
