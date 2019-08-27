@@ -9,18 +9,10 @@ export default {
     initialGame: Array,
     boxesPlayed: Array
   },
-  data() {
-    return {
-      currentGame: []
-    };
-  },
-  watch: {
-    boxesPlayed: function() {
-      console.log("played: " + this.boxesPlayed);
-    }
-  },
   methods: {
-    resetGame: function() {},
+    resetGame: function() {
+      this.$store.commit("clearBoxesPlayed");
+    },
     checkForWin: function() {}
   }
 };

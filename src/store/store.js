@@ -14,6 +14,9 @@ export const store = new Vuex.Store({
 			} else {
 				state.boxesPlayed.push(id);
 			}
+		},
+		clearBoxesPlayed(state) {
+			state.boxesPlayed = [];
 		}
 	},
 	getters: {

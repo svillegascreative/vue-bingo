@@ -1,6 +1,12 @@
 <template>
   <div class="game-box">
-    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="changeBox(boxId)" />
+    <input
+      type="checkbox"
+      :id="boxIdentifier"
+      :value="boxId"
+      :checked="isChecked"
+      @change="changeBox(boxId)"
+    />
     <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
 </template>
@@ -15,6 +21,9 @@ export default {
   computed: {
     boxIdentifier: function() {
       return "box-" + this.boxId;
+    },
+    isChecked: function() {
+      return this.$store.state.boxesPlayed.includes(this.boxId) ? true : false;
     }
   },
   methods: {
