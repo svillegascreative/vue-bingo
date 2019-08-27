@@ -1,12 +1,6 @@
 <template>
   <div class="game-board">
-    <GameBox
-      v-for="(box, index) in boxes"
-      :key="index"
-      :box-id="index"
-      :box-content="box"
-      @check-box="updateCheckedBoxes"
-    ></GameBox>
+    <GameBox v-for="(box, index) in boxes" :key="index" :box-id="index" :box-content="box"></GameBox>
   </div>
 </template>
 
@@ -20,26 +14,6 @@ export default {
   },
   components: {
     GameBox
-  },
-  data() {
-    return {
-      checkedBoxes: []
-    };
-  },
-  methods: {
-    updateCheckedBoxes: function(id) {
-      if (this.checkedBoxes.includes(id)) {
-        this.checkedBoxes.splice(this.checkedBoxes.indexOf(id), 1);
-      } else {
-        this.checkedBoxes.push(id);
-      }
-      console.log("checked boxes: " + this.checkedBoxes);
-    }
-  },
-  watch: {
-    checkedBoxes: function(val) {
-      this.$emit("board-change", val);
-    }
   }
 };
 </script>

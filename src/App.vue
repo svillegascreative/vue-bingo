@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <GameBoard :boxes="boxes" @board-change="updateGameStatus"></GameBoard>
+    <GameBoard :boxes="boxes"></GameBoard>
     <GameStatus :boxesPlayed="boxesPlayed"></GameStatus>
   </div>
 </template>
@@ -8,10 +8,12 @@
 <script>
 import GameBoard from "@/components/board.vue";
 import GameStatus from "@/components/game-status.vue";
-import testBoxes from "@/data/boxes.js";
+import { store } from "@/store/store";
+import testBoxes from "@/data/boxes";
 
 export default {
   name: "app",
+  store,
   components: {
     GameBoard,
     GameStatus

@@ -1,6 +1,6 @@
 <template>
   <div class="game-box">
-    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="$emit('check-box', boxId)" />
+    <input type="checkbox" :id="boxIdentifier" :value="boxId" @change="changeBox(boxId)" />
     <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   computed: {
     boxIdentifier: function() {
       return "box-" + this.boxId;
+    }
+  },
+  methods: {
+    changeBox(id) {
+      this.$store.commit("updateBoxesPlayed", id);
     }
   }
 };
