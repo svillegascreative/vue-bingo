@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import wins from "@/data/wins";
-import testBoxes from "@/data/boxes";
+import { testBoxes, baseball } from "@/data/boxes";
 import shuffle from "@/helpers/shuffle.js";
 
 Vue.use(Vuex);
@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
 	},
 	mutations: {
 		setGameBoxes(state) {
-			let shuffledPool = shuffle(testBoxes.slice());
+			let shuffledPool = shuffle(baseball.slice());
 			// select only 25 values
 			state.gameBoxes = shuffledPool.slice(0, 25);
 		},
