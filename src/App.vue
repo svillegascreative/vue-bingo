@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <GameBoard :boxes="boxes"></GameBoard>
+    <GameBoard></GameBoard>
     <GameStatus></GameStatus>
   </div>
 </template>
@@ -9,7 +9,6 @@
 import GameBoard from "@/components/board.vue";
 import GameStatus from "@/components/game-status.vue";
 import { store } from "@/store/store";
-import testBoxes from "@/data/boxes";
 
 export default {
   name: "app",
@@ -17,11 +16,6 @@ export default {
   components: {
     GameBoard,
     GameStatus
-  },
-  data() {
-    return {
-      boxes: testBoxes
-    };
   }
 };
 </script>

@@ -1,16 +1,20 @@
 <template>
   <div class="game-board">
-    <GameBox v-for="(box, index) in boxes" :key="index" :box-id="index" :box-content="box"></GameBox>
+    <GameBox v-for="(box, index) in this.boxes" :key="index" :box-id="index" :box-content="box"></GameBox>
   </div>
 </template>
 
 <script>
 import GameBox from "./box.vue";
+import testBoxes from "@/data/boxes";
 
 export default {
   name: "GameBoard",
-  props: {
-    boxes: Array
+  props: {},
+  data() {
+    return {
+      boxes: testBoxes
+    };
   },
   components: {
     GameBox
