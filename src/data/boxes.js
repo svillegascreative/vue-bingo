@@ -23,6 +23,11 @@ const testBoxes = [
 	"box 22",
 	"box 23",
 	"box 24",
-	"box 25"
+	"box 25",
+	"box 26",
+	"box 27",
+	"box 28",
+	"box 29",
+	"box 30"
 ];
 export default testBoxes;

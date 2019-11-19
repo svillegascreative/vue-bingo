@@ -1,23 +1,31 @@
 <template>
   <div class="game-board">
-    <GameBox v-for="(box, index) in this.boxes" :key="index" :box-id="index" :box-content="box"></GameBox>
+    <GameBox v-for="(box, index) in gameBoxes" :key="index" :box-id="index" :box-content="box"></GameBox>
   </div>
 </template>
 
 <script>
 import GameBox from "./box.vue";
 import testBoxes from "@/data/boxes";
+import shuffle from "@/helpers/shuffle.js";
 
 export default {
   name: "GameBoard",
+  components: {
+    GameBox
+  },
   props: {},
   data() {
     return {
-      boxes: testBoxes
+      boxPool: testBoxes
     };
   },
-  components: {
-    GameBox
+  computed: {
+    gameBoxes() {
+      let shuffledPool = shuffle(this.boxPool);
+      // select only 25 values
+      return shuffledPool.slice(0, 25);
+    }
   }
 };
 </script>
