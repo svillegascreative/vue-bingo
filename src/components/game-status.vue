@@ -11,9 +11,7 @@ export default {
   methods: {
     resetGame() {
       this.$store.commit("clearBoxesPlayed");
-    },
-    declareWin() {
-      this.$store.commit("setToWon");
+      this.$store.commit("unsetWin");
     }
   }
 };

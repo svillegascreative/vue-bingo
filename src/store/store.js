@@ -19,8 +19,11 @@ export const store = new Vuex.Store({
 		clearBoxesPlayed(state) {
 			state.boxesPlayed = [];
 		},
-		setToWon(state) {
+		setWin(state) {
 			state.isWon = true;
+		},
+		unsetWin(state) {
+			state.isWon = false;
 		}
 	},
 	actions: {
@@ -35,7 +38,7 @@ export const store = new Vuex.Store({
 		checkForWin({ commit }) {
 			for (let win of wins) {
 				if (win.every(v => this.state.boxesPlayed.includes(v))) {
-					commit("setToWon");
+					commit("setWin");
 					break;
 				}
 			}
