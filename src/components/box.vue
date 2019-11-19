@@ -5,7 +5,7 @@
       :id="boxIdentifier"
       :value="boxId"
       :checked="isChecked"
-      @change="changeBox(boxId)"
+      @change="toggleBox(boxId)"
     />
     <label :for="boxIdentifier">{{boxContent}}</label>
   </div>
@@ -27,8 +27,8 @@ export default {
     }
   },
   methods: {
-    changeBox(id) {
-      this.$store.commit("updateBoxesPlayed", id);
+    toggleBox(id) {
+      this.$store.dispatch("toggleBox", id);
     }
   }
 };

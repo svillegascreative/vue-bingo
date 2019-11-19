@@ -1,19 +1,20 @@
 <template>
-  <button @click="resetGame">Reset Game</button>
+  <div>
+    <p v-if="this.$store.state.isWon">You win!</p>
+    <button @click="resetGame">Reset Game</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: "GameStatus",
-  props: {
-    initialGame: Array,
-    boxesPlayed: Array
-  },
   methods: {
-    resetGame: function() {
+    resetGame() {
       this.$store.commit("clearBoxesPlayed");
     },
-    checkForWin: function() {}
+    declareWin() {
+      this.$store.commit("setToWon");
+    }
   }
 };
 </script>
