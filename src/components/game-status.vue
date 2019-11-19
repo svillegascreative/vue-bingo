@@ -1,7 +1,8 @@
 <template>
   <div>
+    <button @click="clearBoard">Clear Board</button>
+    <button @click="resetBoard">New Board</button>
     <p v-if="this.$store.state.isWon">You win!</p>
-    <button @click="resetGame">Reset Game</button>
   </div>
 </template>
 
@@ -9,9 +10,17 @@
 export default {
   name: "GameStatus",
   methods: {
-    resetGame() {
-      this.$store.commit("clearBoxesPlayed");
-      this.$store.commit("unsetWin");
+    clearBoard() {
+      if (this.$store.state.boxesPlayed.length != 0) {
+        this.$store.commit("clearBoxesPlayed");
+      }
+      if (this.$store.state.isWon) {
+        this.$store.commit("unsetWin");
+      }
+    },
+    resetBoard() {
+      this.clearBoard();
+      this.$store.commit("setGameBoxes");
     }
   }
 };
