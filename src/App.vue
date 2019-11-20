@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <GameControls></GameControls>
     <GameBoard></GameBoard>
     <GameStatus></GameStatus>
   </div>
@@ -8,6 +9,7 @@
 <script>
 import GameBoard from "@/components/board.vue";
 import GameStatus from "@/components/game-status.vue";
+import GameControls from "@/components/game-controls.vue";
 import { store } from "@/store/store";
 
 export default {
@@ -15,7 +17,8 @@ export default {
   store,
   components: {
     GameBoard,
-    GameStatus
+    GameStatus,
+    GameControls
   }
 };
 </script>
