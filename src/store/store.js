@@ -1,18 +1,21 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import wins from "@/data/wins";
-import { testBoxes, baseball } from "@/data/boxes";
 import shuffle from "@/helpers/shuffle.js";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state: {
+		themes: [],
 		gameBoxes: [],
 		boxesPlayed: [],
 		isWon: false
 	},
 	mutations: {
+		setThemes(state, arr) {
+			state.themes = arr;
+		},
 		setGameBoxes(state) {
 			let shuffledPool = shuffle(baseball.slice());
 			// select only 25 values
