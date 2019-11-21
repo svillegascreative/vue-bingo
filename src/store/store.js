@@ -56,7 +56,6 @@ export const store = new Vuex.Store({
 		}
 	},
 	getters: {
-		boxesPlayed: state => state.boxesPlayed,
-		isWon: state => state.isWon
+		themeNames: state => state.themes.map(t => t.name)
 	}
 });
