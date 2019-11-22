@@ -58,8 +58,5 @@ export const store = new Vuex.Store({
 				}
 			}
 		}
-	},
-	getters: {
-		themeNames: state => state.themes.map(t => t.name)
 	}
 });

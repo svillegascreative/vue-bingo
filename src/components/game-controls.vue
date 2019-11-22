@@ -16,9 +16,14 @@ export default {
   name: "GameControls",
   data() {
     return {
-      selectedTheme: "",
-      themeNames: this.$store.getters.themeNames
+      themes: [],
+      selectedTheme: ""
     };
+  },
+  computed: {
+    themeNames() {
+      return this.themes.map(t => t.name);
+    }
   },
   watch: {
     selectedTheme() {
@@ -27,9 +32,7 @@ export default {
   },
   methods: {
     fetchThemes() {
-      axios
-        .get("themes.json")
-        .then(response => this.$store.commit("setThemes", response.data));
+      axios.get("themes.json").then(response => (this.themes = response.data));
     },
     clearBoard() {
       if (this.$store.state.boxesPlayed.length != 0) {
