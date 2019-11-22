@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "GameControls",
   data() {
@@ -24,6 +26,11 @@ export default {
     }
   },
   methods: {
+    fetchThemes() {
+      axios
+        .get("themes.json")
+        .then(response => this.$store.commit("setThemes", response.data));
+    },
     clearBoard() {
       if (this.$store.state.boxesPlayed.length != 0) {
         this.$store.commit("clearBoxesPlayed");
@@ -36,6 +43,9 @@ export default {
       this.clearBoard();
       this.$store.commit("setGameBoxes");
     }
+  },
+  created() {
+    this.fetchThemes();
   }
 };
 </script>
