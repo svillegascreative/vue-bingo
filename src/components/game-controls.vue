@@ -4,8 +4,8 @@
       <option disabled value>Select theme</option>
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
     </select>
-    <button @click="clearBoard">Clear Board</button>
     <button @click="resetBoard">New Board</button>
+    <button @click="clearBoard">Clear Board</button>
   </div>
 </template>
 
@@ -27,7 +27,11 @@ export default {
   },
   watch: {
     selectedTheme() {
-      this.$store.commit("setCurrentTheme", this.selectedTheme);
+      for (let t of this.themes) {
+        if (t.name == this.selectedTheme) {
+          this.$store.commit("setCurrentTheme", t);
+        }
+      }
     }
   },
   methods: {

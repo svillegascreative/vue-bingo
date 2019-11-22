@@ -7,23 +7,19 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state: {
-		themes: [],
-		currentTheme: "",
+		currentTheme: {},
 		gameBoxes: [],
 		boxesPlayed: [],
 		isWon: false
 	},
 	mutations: {
-		setThemes(state, arr) {
-			state.themes = arr;
-		},
 		setCurrentTheme(state, theme) {
 			state.currentTheme = theme;
 		},
 		setGameBoxes(state) {
-			let shuffledPool = shuffle(baseball.slice());
+			let shuffledOptions = shuffle(state.currentTheme.options.slice());
 			// select only 25 values
-			state.gameBoxes = shuffledPool.slice(0, 25);
+			state.gameBoxes = shuffledOptions.slice(0, 25);
 		},
 		addBox(state, id) {
 			state.boxesPlayed.push(id);
