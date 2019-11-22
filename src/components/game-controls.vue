@@ -1,5 +1,9 @@
 <template>
   <div>
+    <select v-model="selectedTheme">
+      <option disabled value>Select theme</option>
+      <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
+    </select>
     <button @click="clearBoard">Clear Board</button>
     <button @click="resetBoard">New Board</button>
   </div>
@@ -8,6 +12,12 @@
 <script>
 export default {
   name: "GameControls",
+  data() {
+    return {
+      selectedTheme: "",
+      themeNames: this.$store.getters.themeNames
+    };
+  },
   methods: {
     clearBoard() {
       if (this.$store.state.boxesPlayed.length != 0) {
@@ -25,5 +35,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
