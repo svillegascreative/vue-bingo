@@ -18,6 +18,11 @@ export default {
       themeNames: this.$store.getters.themeNames
     };
   },
+  watch: {
+    selectedTheme() {
+      this.$store.commit("setCurrentTheme", this.selectedTheme);
+    }
+  },
   methods: {
     clearBoard() {
       if (this.$store.state.boxesPlayed.length != 0) {

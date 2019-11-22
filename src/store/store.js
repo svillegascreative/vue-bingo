@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state: {
 		themes: [],
+		currentTheme: "",
 		gameBoxes: [],
 		boxesPlayed: [],
 		isWon: false
@@ -15,6 +16,9 @@ export const store = new Vuex.Store({
 	mutations: {
 		setThemes(state, arr) {
 			state.themes = arr;
+		},
+		setCurrentTheme(state, theme) {
+			state.currentTheme = theme;
 		},
 		setGameBoxes(state) {
 			let shuffledPool = shuffle(baseball.slice());
