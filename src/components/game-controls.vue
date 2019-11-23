@@ -5,7 +5,7 @@
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
     </select>
     <button @click="resetBoard">New Board</button>
-    <button @click="clearBoard">Clear Board</button>
+    <button @click="clearBoard" :disabled="isClearBoard">Clear Board</button>
   </div>
 </template>
 
@@ -23,6 +23,9 @@ export default {
   computed: {
     themeNames() {
       return this.themes.map(t => t.name);
+    },
+    isClearBoard() {
+      return this.$store.state.boxesPlayed.length == 0 ? true : false;
     }
   },
   watch: {
