@@ -5,6 +5,7 @@
       :id="boxIdentifier"
       :value="boxId"
       :checked="isChecked"
+      :disabled="this.$store.state.isWon"
       @change="toggleBox(boxId)"
     />
     <label :for="boxIdentifier">{{boxContent}}</label>
