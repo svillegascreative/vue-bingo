@@ -4,8 +4,8 @@
       <option disabled value>Select theme</option>
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
     </select>
-    <button @click="resetBoard" :disabled="hasNoTheme">New Board</button>
-    <button @click="clearBoard" :disabled="isClearBoard">Clear Board</button>
+    <button @click="setBoard" :disabled="hasNoTheme">New Board</button>
+    <button @click="clearGame" :disabled="isClearBoard">Clear Board</button>
   </div>
 </template>
 
@@ -31,20 +31,20 @@ export default {
       return this.$store.state.boxesPlayed.length == 0 ? true : false;
     }
   },
-  watch: {
-    selectedTheme() {
-      for (let t of this.themes) {
-        if (t.name == this.selectedTheme) {
-          this.$store.commit("setCurrentTheme", t);
-        }
-      }
-    }
-  },
   methods: {
     fetchThemes() {
       axios.get("themes.json").then(response => (this.themes = response.data));
     },
-    clearBoard() {
+    setTheme() {
+      if (this.$store.state.currentTheme.name != this.selectedTheme) {
+        for (let t of this.themes) {
+          if (t.name == this.selectedTheme) {
+            this.$store.commit("setCurrentTheme", t);
+          }
+        }
+      }
+    },
+    clearGame() {
       if (this.$store.state.boxesPlayed.length != 0) {
         this.$store.commit("clearBoxesPlayed");
       }
@@ -52,8 +52,9 @@ export default {
         this.$store.commit("unsetWin");
       }
     },
-    resetBoard() {
-      this.clearBoard();
+    setBoard() {
+      this.clearGame();
+      this.setTheme();
       this.$store.commit("setGameBoxes");
     }
   },
