@@ -47,7 +47,7 @@ export default {
 }
 
 input[type="checkbox"] {
-  display: none;
+  opacity: 0;
 
   & + label {
     position: absolute;
@@ -60,6 +60,10 @@ input[type="checkbox"] {
 
   &:checked + label {
     background: yellow;
+  }
+
+  &:focus + label {
+    background: chartreuse;
   }
 }
 </style>
