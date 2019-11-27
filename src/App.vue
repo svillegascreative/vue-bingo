@@ -3,6 +3,7 @@
     <GameControls></GameControls>
     <GameBoard></GameBoard>
     <GameStatus></GameStatus>
+    <GameList></GameList>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import GameBoard from "@/components/board.vue";
 import GameStatus from "@/components/game-status.vue";
 import GameControls from "@/components/game-controls.vue";
+import GameList from "@/components/game-list.vue";
 import { store } from "@/store/store";
 
 export default {
@@ -18,7 +20,8 @@ export default {
   components: {
     GameBoard,
     GameStatus,
-    GameControls
+    GameControls,
+    GameList
   }
 };
 </script>
@@ -28,7 +31,6 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

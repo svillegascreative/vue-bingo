@@ -44,6 +44,7 @@ export default {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  overflow: hidden;
 }
 
 input[type="checkbox"] {
