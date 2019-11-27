@@ -5,7 +5,7 @@
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
     </select>
     <button @click="setBoard" :disabled="hasNoTheme">New Board</button>
-    <button @click="clearGame" :disabled="isClearBoard">Clear Board</button>
+    <button @click="clearGame" :disabled="isClearBoard" class="clearBtn">Clear Board</button>
   </div>
 </template>
 
@@ -29,6 +29,15 @@ export default {
     },
     isClearBoard() {
       return this.$store.state.boxesPlayed.length == 0 ? true : false;
+    },
+    isWon() {
+      return this.$store.state.isWon;
+    }
+  },
+  watch: {
+    isWon() {
+      let clearBtn = document.querySelector(".clearBtn");
+      clearBtn.focus();
     }
   },
   methods: {
