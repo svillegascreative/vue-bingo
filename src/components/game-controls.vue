@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="game-controls">
     <select v-model="selectedTheme">
       <option disabled value>Select theme</option>
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
@@ -73,4 +73,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.game-controls {
+  text-align: center;
+}
+</style>

@@ -41,9 +41,6 @@ export default {
   height: 100%;
   width: 100%;
   border: 1px solid;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
   overflow: hidden;
 }
 
@@ -56,7 +53,10 @@ input[type="checkbox"] {
     left: 0;
     width: 100%;
     height: 100%;
-    // z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   &:checked + label {

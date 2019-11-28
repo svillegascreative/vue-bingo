@@ -1,5 +1,4 @@
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+@import "constants.scss";
+@import "variables.scss";
+
+@import "global.scss";
