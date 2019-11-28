@@ -1,8 +1,8 @@
 <template>
   <div id="app">
+    <GameStatus></GameStatus>
     <GameControls></GameControls>
     <GameCard></GameCard>
-    <GameStatus></GameStatus>
     <GameList></GameList>
   </div>
 </template>
@@ -28,6 +28,6 @@ export default {
 
 <style lang="scss">
 #app {
-  margin-top: 60px;
+  // keep this (even if empty) to apply custom variables set on `:root`
 }
 </style>
