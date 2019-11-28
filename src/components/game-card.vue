@@ -25,7 +25,7 @@
 import GameBox from "./box.vue";
 
 export default {
-  name: "GameBoard",
+  name: "GameCard",
   components: {
     GameBox
   }

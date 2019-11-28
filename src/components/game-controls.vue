@@ -4,8 +4,8 @@
       <option disabled value>Select theme</option>
       <option v-for="(name, index) of themeNames" :key="index" :value="name">{{ name }}</option>
     </select>
-    <button @click="setBoard" :disabled="hasNoTheme">New Board</button>
-    <button @click="clearGame" :disabled="isClearBoard" class="clearBtn">Clear Board</button>
+    <button @click="setCard" :disabled="hasNoTheme">New Card</button>
+    <button @click="clearGame" :disabled="isClearCard" class="clearBtn">Clear Card</button>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     hasNoTheme() {
       return this.selectedTheme ? false : true;
     },
-    isClearBoard() {
+    isClearCard() {
       return this.$store.state.boxesPlayed.length == 0 ? true : false;
     },
     isWon() {
@@ -61,7 +61,7 @@ export default {
         this.$store.commit("unsetWin");
       }
     },
-    setBoard() {
+    setCard() {
       this.clearGame();
       this.setTheme();
       this.$store.commit("setGameBoxes");
