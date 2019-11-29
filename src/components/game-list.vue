@@ -1,5 +1,5 @@
 <template>
-  <ol class="game-list">
+  <ol v-if="this.$store.state.isCompact" class="game-list">
     <li v-for="(box, index) in this.$store.state.gameBoxes" :key="index">
       <label>
         <input
