@@ -7,12 +7,16 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state: {
+		isCompact: false,
 		currentTheme: {},
 		gameBoxes: [],
 		boxesPlayed: [],
 		isWon: false
 	},
 	mutations: {
+		setCompact(state, value) {
+			state.isCompact = value;
+		},
 		setCurrentTheme(state, theme) {
 			state.currentTheme = theme;
 		},

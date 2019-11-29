@@ -8,7 +8,7 @@
       :disabled="this.$store.state.isWon"
       @change="toggleBox(boxId)"
     />
-    <label :for="boxIdentifier">{{boxContent}}</label>
+    <label :for="boxIdentifier">{{boxDisplay}}</label>
   </div>
 </template>
 
@@ -19,14 +19,21 @@ export default {
     boxId: Number,
     boxContent: String
   },
+  data() {
+    return {};
+  },
   computed: {
-    boxIdentifier: function() {
+    boxIdentifier() {
       return "box-" + this.boxId;
     },
-    isChecked: function() {
+    boxDisplay() {
+      return this.$store.state.isCompact ? this.boxId + 1 : this.boxContent;
+    },
+    isChecked() {
       return this.$store.state.boxesPlayed.includes(this.boxId) ? true : false;
     }
   },
+  watch: {},
   methods: {
     toggleBox(id) {
       this.$store.dispatch("toggleBox", id);

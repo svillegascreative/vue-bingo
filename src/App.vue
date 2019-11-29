@@ -22,6 +22,12 @@ export default {
     GameStatus,
     GameControls,
     GameList
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      let compact = window.innerWidth < 600;
+      this.$store.commit("setCompact", compact);
+    });
   }
 };
 </script>
