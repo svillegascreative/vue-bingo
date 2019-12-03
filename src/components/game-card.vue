@@ -34,11 +34,12 @@ export default {
 
 <style lang="scss" scoped>
 .game-card {
-  background-color: #fff;
-  width: 80vw;
+  width: 90vw;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 1em auto;
+  background-color: var(--color-bg-second);
   padding: 1em;
+  box-shadow: 2px 2px 10px darkgrey;
 }
 
 .game-name {
@@ -52,6 +53,9 @@ export default {
 
   span {
     flex: 1;
+    font-family: var(--font-fun);
+    font-weight: normal;
+    font-size: 2em;
   }
 }
 

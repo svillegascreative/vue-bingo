@@ -64,14 +64,16 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 5px;
+    border: 5px solid transparent;
   }
 
   &:checked + label {
-    background: yellow;
+    background: var(--active-color);
   }
 
   &:focus + label {
-    background: chartreuse;
+    border-color: var(--focus-color);
   }
 }
 </style>
