@@ -2,7 +2,8 @@
   <div class="game-card">
     <h1 class="game-name">
       {{this.$store.state.currentTheme.name}}
-      <div class="bingo-letters">
+      <span class="screen-reader">Bingo</span>
+      <div class="bingo-letters" aria-hidden="true">
         <span>B</span>
         <span>I</span>
         <span>N</span>
