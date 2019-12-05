@@ -7,15 +7,15 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state: {
-		isCompact: false,
+		screenWidth: null,
 		currentTheme: {},
 		gameBoxes: [],
 		boxesPlayed: [],
 		isWon: false
 	},
 	mutations: {
-		setCompact(state, value) {
-			state.isCompact = value;
+		setScreenWidth(state, value) {
+			state.screenWidth = value;
 		},
 		setCurrentTheme(state, theme) {
 			state.currentTheme = theme;
@@ -39,6 +39,14 @@ export const store = new Vuex.Store({
 		},
 		unsetWin(state) {
 			state.isWon = false;
+		}
+	},
+	getters: {
+		screenAtLeast(state) {
+			return w => state.screenWidth >= w;
+		},
+		screenUnder(state) {
+			return w => state.screenWidth < w;
 		}
 	},
 	actions: {

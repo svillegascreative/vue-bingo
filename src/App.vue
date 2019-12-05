@@ -3,7 +3,7 @@
     <GameStatus></GameStatus>
     <GameControls></GameControls>
     <GameCard></GameCard>
-    <GameList></GameList>
+    <GameList v-if="screenUnder(bp.large)"></GameList>
   </div>
 </template>
 
@@ -13,6 +13,8 @@ import GameStatus from "@/components/game-status.vue";
 import GameControls from "@/components/game-controls.vue";
 import GameList from "@/components/game-list.vue";
 import { store } from "@/store/store";
+import { mapGetters } from "vuex";
+import bp from "@/data/breakpoints";
 
 export default {
   name: "app",
@@ -23,10 +25,17 @@ export default {
     GameControls,
     GameList
   },
+  data() {
+    return {
+      bp
+    };
+  },
+  computed: {
+    ...mapGetters(["screenAtLeast", "screenUnder"])
+  },
   mounted() {
     window.addEventListener("resize", () => {
-      let compact = window.innerWidth < 600;
-      this.$store.commit("setCompact", compact);
+      this.$store.commit("setScreenWidth", window.innerWidth);
     });
   }
 };

@@ -13,27 +13,27 @@
 </template>
 
 <script>
+import bp from "@/data/breakpoints";
+
 export default {
   name: "GameBox",
   props: {
     boxId: Number,
     boxContent: String
   },
-  data() {
-    return {};
-  },
   computed: {
     boxIdentifier() {
       return "box-" + this.boxId;
     },
     boxDisplay() {
-      return this.$store.state.isCompact ? this.boxId + 1 : this.boxContent;
+      return this.$store.getters.screenUnder(bp.large)
+        ? this.boxId + 1
+        : this.boxContent;
     },
     isChecked() {
       return this.$store.state.boxesPlayed.includes(this.boxId) ? true : false;
     }
   },
-  watch: {},
   methods: {
     toggleBox(id) {
       this.$store.dispatch("toggleBox", id);
