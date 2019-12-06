@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .game-card {
   width: 90vw;
-  max-width: 700px;
+  max-width: 400px;
   margin: 1em auto;
   background-color: var(--color-bg-second);
   padding: 1em;
@@ -56,7 +56,7 @@ export default {
     flex: 1;
     font-family: var(--font-fun);
     font-weight: normal;
-    font-size: 2em;
+    font-size: 1.2em;
   }
 }
 
@@ -79,6 +79,15 @@ export default {
   & > *:first-child {
     grid-row: 1 / 1;
     grid-column: 1 / 1;
+  }
+}
+
+@media (min-width: $bp-large) {
+  .game-card {
+    max-width: 700px;
+  }
+  .bingo-letters span {
+    font-size: 2em;
   }
 }
 </style>

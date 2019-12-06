@@ -1,2 +1,11 @@
+// BREAKPOINTS
+// TODO: figure out how use bps in unity with @/data/breakpoints.js
+$bp-medium: 350px;
+$bp-large: 700px;
+$bp-huge: 1200px;
+$bp-small-max: $bp-medium - 1px;
+$bp-medium-max: $bp-large - 1px;
+$bp-large-max: $bp-huge - 1px;
+
 // TYPOGRAPHY
 $primary-font: serif;
