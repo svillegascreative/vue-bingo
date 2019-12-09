@@ -1,6 +1,6 @@
 <template>
   <ol class="game-list">
-    <li v-for="(box, index) in this.$store.state.gameBoxes" :key="index">
+    <li v-for="(box, index) in gameBoxes" :key="index">
       <label>
         <input
           type="checkbox"
@@ -16,23 +16,28 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "GameList",
   computed: {
-    isWon() {
-      return this.$store.state.isWon;
-    }
+    ...mapState(["boxesPlayed", "gameBoxes", "isWon"])
   },
   methods: {
     toggleBox(id) {
       this.$store.dispatch("toggleBox", id);
     },
     isChecked(index) {
-      return this.$store.state.boxesPlayed.includes(index) ? true : false;
+      return this.boxesPlayed.includes(index) ? true : false;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.game-list {
+  li {
+    margin-bottom: 1em;
+  }
+}
 </style>
